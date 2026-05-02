@@ -1,0 +1,56 @@
+2026-03-28 02:46:35 [INFO] ============================================================
+2026-03-28 02:46:35 [INFO] HYPERPARAMETER TUNING ¡ª Starting
+2026-03-28 02:46:35 [INFO] ============================================================
+2026-03-28 02:46:35 [INFO] Tuning on Scheme C
+2026-03-28 02:46:35 [INFO]   Training data: (696983, 38), class_weight=balanced
+2026-03-28 02:46:35 [INFO]   Building model configs (include_cluster=False)...
+2026-03-28 02:46:36 [INFO]     HistGBT categorical_features: indices 22..35 (14 features, include_cluster=False)
+2026-03-28 02:46:36 [INFO]     RandomForest: pipeline steps = ['preprocessing', 'model']
+2026-03-28 02:46:36 [INFO]     HistGBT: pipeline steps = ['preprocessing', 'model']
+2026-03-28 02:46:36 [INFO]     LogisticRegression: pipeline steps = ['preprocessing', 'model']
+2026-03-28 02:46:36 [INFO] 
+============================================================
+2026-03-28 02:46:36 [INFO] TUNING: LogisticRegression
+2026-03-28 02:46:36 [INFO] ============================================================
+2026-03-28 02:46:36 [INFO]     Running GridSearchCV: 3 param groups, 5-fold CV, scoring=f1_macro...
+2026-03-28 02:46:36 [INFO]     20 parameter combinations ¡Á 5 folds = 100 fits
+2026-03-28 06:05:17 [INFO]     Best score: 0.4205
+2026-03-28 06:05:17 [INFO]     Best params: {'model__C': 0.1, 'model__penalty': 'l2', 'model__solver': 'liblinear'}
+2026-03-28 06:05:17 [INFO]     Total time: 11921.7s (198.7min)
+2026-03-28 06:05:19 [INFO]   [LogisticRegression] DONE: best CV Macro F1 = 0.4205 (198.7min)
+2026-03-28 06:05:19 [INFO]   Best params: {'model__C': 0.1, 'model__penalty': 'l2', 'model__solver': 'liblinear'}
+2026-03-28 06:05:19 [INFO]   CV results saved to ./outputs/results/tuning_LogisticRegression_cv_results.csv
+2026-03-28 06:05:19 [INFO] 
+============================================================
+2026-03-28 06:05:19 [INFO] TUNING: HistGBT
+2026-03-28 06:05:19 [INFO] ============================================================
+2026-03-28 06:05:19 [INFO]     Running GridSearchCV: 3 param groups, 5-fold CV, scoring=f1_macro...
+2026-03-28 06:05:19 [INFO]     36 parameter combinations ¡Á 5 folds = 180 fits
+2026-03-28 06:50:59 [INFO]     Best score: 0.4082
+2026-03-28 06:50:59 [INFO]     Best params: {'model__learning_rate': 0.1, 'model__max_depth': 5, 'model__max_iter': 200}
+2026-03-28 06:50:59 [INFO]     Total time: 2739.7s (45.7min)
+2026-03-28 06:50:59 [INFO]   [HistGBT] DONE: best CV Macro F1 = 0.4082 (45.7min)
+2026-03-28 06:50:59 [INFO]   Best params: {'model__learning_rate': 0.1, 'model__max_depth': 5, 'model__max_iter': 200}
+2026-03-28 06:50:59 [INFO]   CV results saved to ./outputs/results/tuning_HistGBT_cv_results.csv
+2026-03-28 06:50:59 [INFO] 
+============================================================
+2026-03-28 06:50:59 [INFO] TUNING: RandomForest
+2026-03-28 06:50:59 [INFO] ============================================================
+2026-03-28 06:50:59 [INFO]     Running GridSearchCV: 4 param groups, 5-fold CV, scoring=f1_macro...
+2026-03-28 06:50:59 [INFO]     108 parameter combinations ¡Á 5 folds = 540 fits
+2026-03-28 09:56:30 [INFO]     Best score: 0.4482
+2026-03-28 09:56:30 [INFO]     Best params: {'model__max_depth': 20, 'model__min_samples_leaf': 4, 'model__min_samples_split': 2, 'model__n_estimators': 300}
+2026-03-28 09:56:30 [INFO]     Total time: 11131.2s (185.5min)
+2026-03-28 09:56:30 [INFO]   [RandomForest] DONE: best CV Macro F1 = 0.4482 (185.5min)
+2026-03-28 09:56:30 [INFO]   Best params: {'model__max_depth': 20, 'model__min_samples_leaf': 4, 'model__min_samples_split': 2, 'model__n_estimators': 300}
+2026-03-28 09:56:30 [INFO]   CV results saved to ./outputs/results/tuning_RandomForest_cv_results.csv
+2026-03-28 09:56:31 [INFO] 
+============================================================
+2026-03-28 09:56:31 [INFO] TUNING COMPLETE
+2026-03-28 09:56:31 [INFO] ============================================================
+2026-03-28 09:56:31 [INFO] Best params saved to ./outputs/results/Table_tuning_best_params.csv
+2026-03-28 09:56:31 [INFO] 
+             model  best_cv_score  model__C model__penalty model__solver  model__learning_rate  model__max_depth  model__max_iter  model__min_samples_leaf  model__min_samples_split  model__n_estimators
+LogisticRegression       0.420525       0.1             l2     liblinear                   NaN               NaN              NaN                      NaN                       NaN                  NaN
+           HistGBT       0.408214       NaN            NaN           NaN                   0.1               5.0            200.0                      NaN                       NaN                  NaN
+      RandomForest       0.448234       NaN            NaN           NaN                   NaN              20.0              NaN                      4.0                       2.0                300.0

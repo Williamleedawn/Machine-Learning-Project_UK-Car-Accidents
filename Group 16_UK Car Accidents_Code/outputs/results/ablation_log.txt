@@ -1,0 +1,112 @@
+2026-03-27 18:21:33 [INFO] ============================================================
+2026-03-27 18:21:33 [INFO] IMBALANCE ABLATION ¡ª Starting
+2026-03-27 18:21:33 [INFO] ============================================================
+2026-03-27 18:21:33 [INFO] Loading Phase 7 data from ./outputs/results/phase7_data.pkl...
+2026-03-27 18:21:34 [INFO]   Sampled train: (696983, 38)
+2026-03-27 18:21:34 [INFO]   Full train: (1424401, 38)
+2026-03-27 18:21:34 [INFO]   Building model configs (include_cluster=False)...
+2026-03-27 18:21:34 [INFO]     HistGBT categorical_features: indices 22..35 (14 features, include_cluster=False)
+2026-03-27 18:21:34 [INFO]     RandomForest: pipeline steps = ['preprocessing', 'model']
+2026-03-27 18:21:34 [INFO]     HistGBT: pipeline steps = ['preprocessing', 'model']
+2026-03-27 18:21:34 [INFO]     LogisticRegression: pipeline steps = ['preprocessing', 'model']
+2026-03-27 18:21:34 [INFO] 
+============================================================
+2026-03-27 18:21:34 [INFO] SCHEME A: class_weight only (no sampling, ~1.42M rows)
+2026-03-27 18:21:34 [INFO] ============================================================
+2026-03-27 18:21:34 [INFO] 
+  [A_LogisticRegression] Starting 5-fold CV...
+2026-03-27 18:24:18 [INFO]     Fold 1/5: Macro F1=0.3799 (164.0s)
+2026-03-27 18:26:35 [INFO]     Fold 2/5: Macro F1=0.3790 (137.4s)
+2026-03-27 18:29:09 [INFO]     Fold 3/5: Macro F1=0.3773 (153.7s)
+2026-03-27 18:31:31 [INFO]     Fold 4/5: Macro F1=0.3789 (142.0s)
+2026-03-27 18:33:51 [INFO]     Fold 5/5: Macro F1=0.3798 (140.4s)
+2026-03-27 18:33:54 [INFO]   [A_LogisticRegression] DONE: CV Macro F1 = 0.3790 ¡À 0.0009, Fatal Recall = 0.2588, Fatal Precision = 0.0676 (740.9s = 12.3min)
+2026-03-27 18:33:54 [INFO] 
+  [A_HistGBT] Starting 5-fold CV...
+2026-03-27 18:34:28 [INFO]     Fold 1/5: Macro F1=0.3576 (33.5s)
+2026-03-27 18:34:59 [INFO]     Fold 2/5: Macro F1=0.3558 (30.8s)
+2026-03-27 18:35:31 [INFO]     Fold 3/5: Macro F1=0.3563 (31.5s)
+2026-03-27 18:36:00 [INFO]     Fold 4/5: Macro F1=0.3564 (29.9s)
+2026-03-27 18:36:33 [INFO]     Fold 5/5: Macro F1=0.3568 (32.2s)
+2026-03-27 18:36:36 [INFO]   [A_HistGBT] DONE: CV Macro F1 = 0.3566 ¡À 0.0006, Fatal Recall = 0.6395, Fatal Precision = 0.0424 (161.6s = 2.7min)
+2026-03-27 18:36:36 [INFO] 
+  [A_RandomForest] Starting 5-fold CV...
+2026-03-27 18:44:04 [INFO]     Fold 1/5: Macro F1=0.3356 (447.7s)
+2026-03-27 18:51:30 [INFO]     Fold 2/5: Macro F1=0.3350 (446.5s)
+2026-03-27 18:58:43 [INFO]     Fold 3/5: Macro F1=0.3358 (433.0s)
+2026-03-27 19:05:58 [INFO]     Fold 4/5: Macro F1=0.3351 (434.8s)
+2026-03-27 19:13:12 [INFO]     Fold 5/5: Macro F1=0.3362 (434.3s)
+2026-03-27 19:13:15 [INFO]   [A_RandomForest] DONE: CV Macro F1 = 0.3355 ¡À 0.0004, Fatal Recall = 0.0010, Fatal Precision = 0.2923 (2199.2s = 36.7min)
+2026-03-27 19:13:15 [INFO] 
+============================================================
+2026-03-27 19:13:15 [INFO] SCHEME B: sampling only (no class_weight, ~697K rows)
+2026-03-27 19:13:15 [INFO] ============================================================
+2026-03-27 19:13:15 [INFO] 
+  [B_LogisticRegression] Starting 5-fold CV...
+2026-03-27 19:14:03 [INFO]     Fold 1/5: Macro F1=0.3457 (48.1s)
+2026-03-27 19:14:52 [INFO]     Fold 2/5: Macro F1=0.3432 (49.1s)
+2026-03-27 19:15:40 [INFO]     Fold 3/5: Macro F1=0.3442 (47.7s)
+2026-03-27 19:16:27 [INFO]     Fold 4/5: Macro F1=0.3445 (46.7s)
+2026-03-27 19:17:19 [INFO]     Fold 5/5: Macro F1=0.3440 (51.8s)
+2026-03-27 19:17:20 [INFO]   [B_LogisticRegression] DONE: CV Macro F1 = 0.3443 ¡À 0.0008, Fatal Recall = 0.0002, Fatal Precision = 0.1579 (244.8s = 4.1min)
+2026-03-27 19:17:20 [INFO] 
+  [B_HistGBT] Starting 5-fold CV...
+2026-03-27 19:17:43 [INFO]     Fold 1/5: Macro F1=0.3636 (22.4s)
+2026-03-27 19:18:05 [INFO]     Fold 2/5: Macro F1=0.3659 (22.5s)
+2026-03-27 19:18:28 [INFO]     Fold 3/5: Macro F1=0.3653 (23.3s)
+2026-03-27 19:18:51 [INFO]     Fold 4/5: Macro F1=0.3652 (22.5s)
+2026-03-27 19:19:14 [INFO]     Fold 5/5: Macro F1=0.3651 (22.8s)
+2026-03-27 19:19:15 [INFO]   [B_HistGBT] DONE: CV Macro F1 = 0.3650 ¡À 0.0008, Fatal Recall = 0.0059, Fatal Precision = 0.3737 (115.2s = 1.9min)
+2026-03-27 19:19:15 [INFO] 
+  [B_RandomForest] Starting 5-fold CV...
+2026-03-27 19:22:30 [INFO]     Fold 1/5: Macro F1=0.3579 (194.8s)
+2026-03-27 19:25:45 [INFO]     Fold 2/5: Macro F1=0.3559 (194.4s)
+2026-03-27 19:28:58 [INFO]     Fold 3/5: Macro F1=0.3586 (193.7s)
+2026-03-27 19:32:14 [INFO]     Fold 4/5: Macro F1=0.3596 (195.3s)
+2026-03-27 19:35:29 [INFO]     Fold 5/5: Macro F1=0.3570 (195.8s)
+2026-03-27 19:35:31 [INFO]   [B_RandomForest] DONE: CV Macro F1 = 0.3578 ¡À 0.0013, Fatal Recall = 0.0008, Fatal Precision = 0.5357 (975.5s = 16.3min)
+2026-03-27 19:35:31 [INFO] 
+============================================================
+2026-03-27 19:35:31 [INFO] SCHEME C: both sampling + class_weight (~697K rows)
+2026-03-27 19:35:31 [INFO] ============================================================
+2026-03-27 19:35:31 [INFO] 
+  [C_LogisticRegression] Starting 5-fold CV...
+2026-03-27 19:36:44 [INFO]     Fold 1/5: Macro F1=0.4197 (73.1s)
+2026-03-27 19:37:56 [INFO]     Fold 2/5: Macro F1=0.4200 (72.3s)
+2026-03-27 19:39:08 [INFO]     Fold 3/5: Macro F1=0.4211 (71.2s)
+2026-03-27 19:40:23 [INFO]     Fold 4/5: Macro F1=0.4205 (75.0s)
+2026-03-27 19:41:45 [INFO]     Fold 5/5: Macro F1=0.4213 (82.3s)
+2026-03-27 19:41:46 [INFO]   [C_LogisticRegression] DONE: CV Macro F1 = 0.4205 ¡À 0.0006, Fatal Recall = 0.3146, Fatal Precision = 0.1023 (375.5s = 6.3min)
+2026-03-27 19:41:46 [INFO] 
+  [C_HistGBT] Starting 5-fold CV...
+2026-03-27 19:42:02 [INFO]     Fold 1/5: Macro F1=0.4066 (15.9s)
+2026-03-27 19:42:19 [INFO]     Fold 2/5: Macro F1=0.4088 (16.9s)
+2026-03-27 19:42:37 [INFO]     Fold 3/5: Macro F1=0.4070 (17.7s)
+2026-03-27 19:42:59 [INFO]     Fold 4/5: Macro F1=0.4092 (21.8s)
+2026-03-27 19:43:18 [INFO]     Fold 5/5: Macro F1=0.4094 (19.5s)
+2026-03-27 19:43:20 [INFO]   [C_HistGBT] DONE: CV Macro F1 = 0.4082 ¡À 0.0012, Fatal Recall = 0.6359, Fatal Precision = 0.0775 (93.7s = 1.6min)
+2026-03-27 19:43:20 [INFO] 
+  [C_RandomForest] Starting 5-fold CV...
+2026-03-27 19:46:36 [INFO]     Fold 1/5: Macro F1=0.3737 (195.7s)
+2026-03-27 19:49:55 [INFO]     Fold 2/5: Macro F1=0.3738 (199.7s)
+2026-03-27 19:53:11 [INFO]     Fold 3/5: Macro F1=0.3737 (195.0s)
+2026-03-27 19:56:27 [INFO]     Fold 4/5: Macro F1=0.3780 (196.6s)
+2026-03-27 19:59:40 [INFO]     Fold 5/5: Macro F1=0.3713 (193.1s)
+2026-03-27 19:59:42 [INFO]   [C_RandomForest] DONE: CV Macro F1 = 0.3741 ¡À 0.0022, Fatal Recall = 0.0049, Fatal Precision = 0.2736 (981.7s = 16.4min)
+2026-03-27 19:59:42 [INFO] 
+============================================================
+2026-03-27 19:59:42 [INFO] ABLATION COMPLETE ¡ª Total time: 5888.0s (1.6h)
+2026-03-27 19:59:42 [INFO] Results: ./outputs/results/Table_ablation.csv
+2026-03-27 19:59:42 [INFO] ============================================================
+2026-03-27 19:59:42 [INFO] 
+Ablation Summary:
+scheme              model  cv_macro_f1_mean  cv_macro_f1_std  Fatal_recall  Fatal_precision  balanced_accuracy
+     A LogisticRegression          0.379007         0.000924      0.258792         0.067633           0.425096
+     A            HistGBT          0.356585         0.000591      0.639452         0.042352           0.543740
+     A       RandomForest          0.335528         0.000426      0.001033         0.292308           0.346792
+     B LogisticRegression          0.344337         0.000828      0.000163         0.157895           0.364442
+     B            HistGBT          0.365023         0.000765      0.005871         0.373702           0.376658
+     B       RandomForest          0.357794         0.001302      0.000815         0.535714           0.372102
+     C LogisticRegression          0.420493         0.000622      0.314562         0.102256           0.463369
+     C            HistGBT          0.408214         0.001151      0.635865         0.077535           0.543923
+     C       RandomForest          0.374087         0.002154      0.004892         0.273556           0.380755

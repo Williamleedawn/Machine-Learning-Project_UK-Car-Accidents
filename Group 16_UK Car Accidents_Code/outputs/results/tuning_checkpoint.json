@@ -1,0 +1,33 @@
+{
+  "completed": {
+    "LogisticRegression": {
+      "best_score": 0.4205253657336801,
+      "best_params": {
+        "model__C": "0.1",
+        "model__penalty": "l2",
+        "model__solver": "liblinear"
+      },
+      "elapsed_min": 198.7
+    },
+    "HistGBT": {
+      "best_score": 0.40821419110431095,
+      "best_params": {
+        "model__learning_rate": "0.1",
+        "model__max_depth": "5",
+        "model__max_iter": "200"
+      },
+      "elapsed_min": 45.7
+    },
+    "RandomForest": {
+      "best_score": 0.4482338029404664,
+      "best_params": {
+        "model__max_depth": "20",
+        "model__min_samples_leaf": "4",
+        "model__min_samples_split": "2",
+        "model__n_estimators": "300"
+      },
+      "elapsed_min": 185.5
+    }
+  },
+  "scheme": "C"
+}

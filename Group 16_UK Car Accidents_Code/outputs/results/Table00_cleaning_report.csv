@@ -1,0 +1,9 @@
+metric,value
+rows_before,1780502
+rows_after,1780502
+rows_removed,0
+rows_removed_pct,0.0
+cols_before,40
+cols_after,28
+cols_removed_count,12
+columns_removed,"1st_Road_Number, 2nd_Road_Class, 2nd_Road_Number, Accident_Index, Did_Police_Officer_Attend_Scene_of_Accident, Junction_Control, LSOA_of_Accident_Location, Local_Authority_(Highway), Location_Easting_OSGR, Location_Northing_OSGR, Number_of_Casualties, Police_Force"

@@ -1,0 +1,4 @@
+model,default_f1,tuned_f1,delta_f1,default_fatal_recall,default_balanced_acc
+LogisticRegression,0.420493,0.420525,0.000032,0.314562,0.463369
+HistGBT,0.408214,0.408214,0.000000,0.635865,0.543923
+RandomForest,0.374087,0.448234,0.074147,0.004892,0.380755

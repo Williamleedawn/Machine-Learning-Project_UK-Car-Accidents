@@ -1,0 +1,4 @@
+model,CV_macro_f1,test_macro_f1,temporal_macro_f1,CV_vs_test,test_vs_temporal,test_fatal_recall,temporal_fatal_recall,test_balanced_acc,temporal_balanced_acc
+RandomForest,0.448200,0.397349,0.396225,-0.050851,-0.001123,0.222440,0.169262,0.476489,0.463294
+HistGBT,0.408200,0.357740,0.352551,-0.050460,-0.005189,0.652098,0.591189,0.548125,0.542473
+LogisticRegression,0.420500,0.400477,0.408068,-0.020023,0.007591,0.317895,0.207582,0.462944,0.447689

@@ -1,0 +1,217 @@
+2026-03-28 22:36:01 [INFO] ============================================================
+2026-03-28 22:36:01 [INFO] PHASE 12-13: Final Evaluation + All Visualizations
+2026-03-28 22:36:01 [INFO] ============================================================
+2026-03-28 22:36:01 [INFO] Loading Phase 7 data from ./outputs/results/phase7_data.pkl...
+2026-03-28 22:36:02 [INFO]   Train: (696983, 38), Test: (356101, 38)
+2026-03-28 22:36:02 [INFO]   Best params loaded: ['LogisticRegression', 'HistGBT', 'RandomForest']
+2026-03-28 22:36:02 [INFO] 
+============================================================
+2026-03-28 22:36:02 [INFO] PART 1: L2 Test Set Evaluation (tuned models)
+2026-03-28 22:36:02 [INFO] ============================================================
+2026-03-28 22:36:02 [INFO] 
+  Loading RandomForest from ./outputs/results/tuning_RandomForest_best_pipeline.pkl...
+2026-03-28 22:36:47 [INFO]   RandomForest: Macro F1=0.3973, Fatal Recall=0.2224, Fatal Precision=0.0673, Balanced Acc=0.4765
+2026-03-28 22:36:47 [INFO] 
+  Loading HistGBT from ./outputs/results/tuning_HistGBT_best_pipeline.pkl...
+2026-03-28 22:36:53 [INFO]   HistGBT: Macro F1=0.3577, Fatal Recall=0.6521, Fatal Precision=0.0435, Balanced Acc=0.5481
+2026-03-28 22:36:53 [INFO] 
+  Loading LogisticRegression from ./outputs/results/tuning_LogisticRegression_best_pipeline.pkl...
+2026-03-28 22:36:55 [INFO]   LogisticRegression: Macro F1=0.4005, Fatal Recall=0.3179, Fatal Precision=0.0583, Balanced Acc=0.4629
+2026-03-28 22:36:55 [INFO] 
+  *** RF TUNED FATAL RECALL = 0.2224 ***
+2026-03-28 22:36:55 [INFO]   (Phase 9 default was 0.005, ablation all-schemes <0.01)
+2026-03-28 22:36:55 [INFO]     Saved: ./outputs/results/Table_test_results.csv
+2026-03-28 22:36:55 [INFO] 
+  Test results summary:
+2026-03-28 22:36:55 [INFO] 
+             Model  accuracy  balanced_accuracy  macro_f1  Fatal_recall  Fatal_precision  Serious_recall
+      RandomForest  0.650029           0.476489  0.397349      0.222440         0.067343        0.531594
+           HistGBT  0.562411           0.548125  0.357740      0.652098         0.043529        0.406292
+LogisticRegression  0.743882           0.462944  0.400477      0.317895         0.058296        0.240131
+2026-03-28 22:36:55 [INFO] 
+  CV (Phase 11) vs Test (Phase 12) Macro F1:
+2026-03-28 22:36:55 [INFO]     RandomForest: CV=0.4482, Test=0.3973, delta=-0.0509
+2026-03-28 22:36:55 [INFO]     HistGBT: CV=0.4082, Test=0.3577, delta=-0.0505
+2026-03-28 22:36:55 [INFO]     LogisticRegression: CV=0.4205, Test=0.4005, delta=-0.0200
+2026-03-28 22:36:55 [INFO] 
+============================================================
+2026-03-28 22:36:55 [INFO] PART 2: Cluster_ID Comparison (Table18)
+2026-03-28 22:36:55 [INFO] ============================================================
+2026-03-28 22:36:55 [INFO] 
+  Building RandomForest + Cluster_ID pipeline...
+2026-03-28 22:37:36 [INFO]   RandomForest: Macro F1 0.3973¡ú0.3971 (-0.0002), Fatal Recall 0.2224¡ú0.2255 (+0.0030)
+2026-03-28 22:37:36 [INFO] 
+  Building HistGBT + Cluster_ID pipeline...
+2026-03-28 22:38:12 [INFO]   HistGBT: Macro F1 0.3577¡ú0.3565 (-0.0013), Fatal Recall 0.6521¡ú0.6575 (+0.0054)
+2026-03-28 22:38:12 [INFO] 
+  Building LogisticRegression + Cluster_ID pipeline...
+2026-03-28 22:40:15 [INFO]   LogisticRegression: Macro F1 0.4005¡ú0.4005 (+0.0001), Fatal Recall 0.3179¡ú0.3188 (+0.0009)
+2026-03-28 22:40:15 [INFO] 
+============================================================
+2026-03-28 22:40:15 [INFO] PART 3: L3 Temporal Holdout
+2026-03-28 22:40:15 [INFO] ============================================================
+2026-03-28 22:40:15 [INFO]   Replaying Phase 1-4 to reconstruct featured_df...
+2026-03-28 22:40:15 [INFO]   Loading Accidents from ./data/UKCarAccidents/UKCarAccidents/Accidents0515.csv...
+2026-03-28 22:40:18 [INFO]   Loaded shape: (1780653, 32)
+2026-03-28 22:40:18 [INFO]   Columns with -1 values (pre-replacement): {'Longitude': 1, '1st_Road_Number': 2, 'Junction_Detail': 19, 'Junction_Control': 641392, '2nd_Road_Class': 732871, '2nd_Road_Number': 16823, 'Pedestrian_Crossing-Human_Control': 161, 'Pedestrian_Crossing-Physical_Facilities': 164, 'Weather_Conditions': 161, 'Road_Surface_Conditions': 2439, 'Special_Conditions_at_Site': 124, 'Carriageway_Hazards': 127, 'Did_Police_Officer_Attend_Scene_of_Accident': 278}
+2026-03-28 22:40:19 [INFO]   Loading Vehicles from ./data/UKCarAccidents/UKCarAccidents/Vehicles0515.csv...
+2026-03-28 22:41:07 [INFO]   Loaded shape: (3262270, 22)
+2026-03-28 22:41:08 [INFO]   Parsing Date and Time columns...
+2026-03-28 22:41:09 [INFO]   Dropping 151 rows with missing Time (0.0085%)
+2026-03-28 22:41:11 [INFO]   Parsed: Year range [2005-2015], Hour range [0-23]
+2026-03-28 22:41:11 [INFO]   Loading context tables from ./data/UKCarAccidents/UKCarAccidents/contextCSVs/...
+2026-03-28 22:41:12 [INFO]   Added hardcoded Weather_Conditions lookup
+2026-03-28 22:41:12 [INFO]   Added hardcoded Road_Surface_Conditions lookup
+2026-03-28 22:41:12 [INFO]   Loaded 29 context tables: ['Accident_Severity', 'Age_Band', 'Casualty_Class', 'Casualty_Severity', 'Casualty_Type', 'Day_of_Week', 'Journey_Purpose', 'Junction_Control', 'Junction_Detail', 'Junction_Location', 'Light_Conditions', 'Local_Authority_District', 'Local_Authority_Highway', 'Ped_Cross_Human', 'Ped_Cross_Physical', 'Ped_Location', 'Ped_Movement', 'Point_of_Impact', 'Police_Force', 'Police_Officer_Attend', 'Road_Class', 'Road_Surface_Conditions', 'Road_Type', 'Sex_of_Driver', 'Urban_Rural', 'Vehicle_Location', 'Vehicle_Manoeuvre', 'Vehicle_Type', 'Weather_Conditions']
+2026-03-28 22:41:12 [INFO]   Aggregating vehicle features by Accident_Index...
+2026-03-28 22:41:17 [INFO]   Aggregated shape: (1780653, 6)
+2026-03-28 22:41:17 [INFO]   Sample:
+                Has_Motorcycle  ...  Mean_Engine_Capacity
+Accident_Index                  ...                      
+200501BS00001                0  ...                   NaN
+200501BS00002                0  ...                8268.0
+200501BS00003                0  ...                5031.0
+
+[3 rows x 6 columns]
+2026-03-28 22:41:17 [INFO]   Merging accidents with aggregated vehicle features...
+2026-03-28 22:41:19 [INFO]   Merge result: 1780502/1780502 matched (0 accidents without vehicle data)
+2026-03-28 22:41:19 [INFO]   Merged shape: (1780502, 40)
+2026-03-28 22:41:19 [INFO]   Analyzing missing value patterns...
+2026-03-28 22:41:19 [INFO]   Missing patterns saved to ./outputs/results/Table00_missing_patterns.csv
+2026-03-28 22:41:19 [INFO]   20 columns with missing values:
+2026-03-28 22:41:19 [INFO]     2nd_Road_Class: 732,789 (41.16%) - MNAR
+2026-03-28 22:41:19 [INFO]     Junction_Control: 641,315 (36.02%) - MNAR
+2026-03-28 22:41:19 [INFO]     Mean_Vehicle_Age: 273,118 (15.34%) - MAR
+2026-03-28 22:41:19 [INFO]     Mean_Engine_Capacity: 243,626 (13.68%) - MAR
+2026-03-28 22:41:19 [INFO]     LSOA_of_Accident_Location: 129,357 (7.27%) - MAR
+2026-03-28 22:41:19 [INFO]     Mean_Driver_Age: 69,139 (3.88%) - MAR
+2026-03-28 22:41:19 [INFO]     2nd_Road_Number: 16,817 (0.94%) - MCAR
+2026-03-28 22:41:19 [INFO]     Road_Surface_Conditions: 2,435 (0.14%) - MCAR
+2026-03-28 22:41:19 [INFO]     Did_Police_Officer_Attend_Scene_of_Accident: 277 (0.02%) - MCAR
+2026-03-28 22:41:19 [INFO]     Pedestrian_Crossing-Physical_Facilities: 163 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Weather_Conditions: 161 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Pedestrian_Crossing-Human_Control: 160 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Location_Northing_OSGR: 138 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Longitude: 139 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Location_Easting_OSGR: 138 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Latitude: 138 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Carriageway_Hazards: 126 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Special_Conditions_at_Site: 123 (0.01%) - MCAR
+2026-03-28 22:41:19 [INFO]     Junction_Detail: 18 (0.00%) - MCAR
+2026-03-28 22:41:19 [INFO]     1st_Road_Number: 2 (0.00%) - MCAR
+2026-03-28 22:41:19 [INFO]   Dropping columns with >30% missing values...
+2026-03-28 22:41:20 [INFO]     Dropped 'Junction_Control': 36.02% missing
+2026-03-28 22:41:20 [INFO]     Dropped '2nd_Road_Class': 41.16% missing
+2026-03-28 22:41:20 [INFO]   Removing 10 leakage/structural columns...
+2026-03-28 22:41:20 [INFO]     Removing 'Number_of_Casualties': Post-hoc outcome: total casualty count is determined AFTER the accident, not ava...
+2026-03-28 22:41:20 [INFO]     Removing 'Did_Police_Officer_Attend_Scene_of_Accident': Post-hoc and causally linked to severity: police are more likely to attend serio...
+2026-03-28 22:41:20 [INFO]     Removing 'Accident_Index': Primary key identifier: no generalizable predictive signal. Already used for veh...
+2026-03-28 22:41:20 [INFO]     Removing '1st_Road_Number': Specific road number (e.g., A3218): too granular to generalize, and geographic i...
+2026-03-28 22:41:20 [INFO]     Removing 'Police_Force': Near-collinear with Local_Authority_(District): both encode geographic jurisdict...
+2026-03-28 22:41:20 [INFO]     Removing 'Local_Authority_(Highway)': String-typed highway authority code (e.g., "E09000020"), redundant with the nume...
+2026-03-28 22:41:20 [INFO]     Removing 'LSOA_of_Accident_Location': Lower Super Output Area: extremely granular geographic ID (~35,000 unique). Geog...
+2026-03-28 22:41:20 [INFO]     Removing 'Location_Easting_OSGR': OS Grid reference (easting): raw coordinate, geographic info captured via Local_...
+2026-03-28 22:41:20 [INFO]     Removing 'Location_Northing_OSGR': OS Grid reference (northing): same rationale as easting...
+2026-03-28 22:41:20 [INFO]     Removing '2nd_Road_Number': Same structural MNAR issue as 2nd_Road_Class: road number of a non-existent seco...
+2026-03-28 22:41:20 [INFO]     Already removed (by prior step): ['2nd_Road_Class']
+2026-03-28 22:41:20 [INFO]     Kept: Longitude, Latitude (needed for clustering Phase 8)
+2026-03-28 22:41:20 [INFO]   Shape after removal: (1780502, 28)
+2026-03-28 22:41:20 [INFO]   Clipping outliers using domain-knowledge bounds...
+2026-03-28 22:41:20 [INFO]     Speed_limit: clipped 1 below 10, 0 above 70
+2026-03-28 22:41:20 [INFO]     Mean_Driver_Age: clipped 8548 below 16, 568 above 90
+2026-03-28 22:41:20 [INFO]     Mean_Engine_Capacity: clipped 10058 below 50, 26141 above 8000
+2026-03-28 22:41:20 [INFO]     Mean_Vehicle_Age: clipped 0 below 0, 153 above 50
+2026-03-28 22:41:20 [INFO]     Number_of_Vehicles: clipped 0 below 1, 8 above 20
+2026-03-28 22:41:20 [INFO]   Creating temporal features...
+2026-03-28 22:41:21 [INFO]     Time_Period: {0: 100190, 1: 324507, 2: 631016, 3: 425925, 4: 298864}
+2026-03-28 22:41:21 [INFO]     Is_Weekend: {0: 1347106, 1: 433396}
+2026-03-28 22:41:21 [INFO]     Season: {0: 419653, 1: 429997, 2: 453576, 3: 477276}
+2026-03-28 22:41:21 [INFO]     Added 3 temporal features
+2026-03-28 22:41:21 [INFO]   Creating binary risk features...
+2026-03-28 22:41:22 [INFO]     Is_Dark: 26.74% positive
+2026-03-28 22:41:22 [INFO]     Bad_Weather: 20.07% positive, 161 NaN
+2026-03-28 22:41:22 [INFO]     Wet_Road: 31.03% positive, 2435 NaN
+2026-03-28 22:41:22 [INFO]     At_Junction: 59.76% positive, 18 NaN
+2026-03-28 22:41:22 [INFO]     Is_Rural: 35.61% positive
+2026-03-28 22:41:22 [INFO]     Added 5 binary features
+2026-03-28 22:41:22 [INFO]   Creating interaction features...
+2026-03-28 22:41:23 [INFO]     Dark_And_Wet: 12.36% positive
+2026-03-28 22:41:23 [INFO]     Rural_High_Speed: 21.41% positive
+2026-03-28 22:41:23 [INFO]     Dark_Rural: 9.41% positive
+2026-03-28 22:41:23 [INFO]     Added 3 interaction features
+2026-03-28 22:41:23 [INFO]   Phase 1-4 replay complete: (1780502, 39) (67.3s)
+2026-03-28 22:41:24 [INFO]   Temporal train (¡Ü2012): (1355490, 39)
+2026-03-28 22:41:24 [INFO]   Temporal test (¡Ý2013): (425012, 39)
+2026-03-28 22:41:24 [INFO]   temporal_train severity: Fatal=0.013, Serious=0.134, Slight=0.853
+2026-03-28 22:41:24 [INFO]   temporal_test severity: Fatal=0.011, Serious=0.142, Slight=0.847
+2026-03-28 22:41:24 [INFO]   Applying asymmetric undersampling (training set only)...
+2026-03-28 22:41:25 [INFO]     Before: 1,355,490 rows ¡ª Fatal=18,116, Serious=181,721, Slight=1,155,653
+2026-03-28 22:41:26 [INFO]     After:  662,098 rows ¡ª Fatal=18,116, Serious=181,721, Slight=462,261
+2026-03-28 22:41:26 [INFO]   Frequency-encoding Local Authority...
+2026-03-28 22:41:26 [INFO]     416 unique districts in training set
+2026-03-28 22:41:26 [INFO]     Global mean frequency: 0.002404
+2026-03-28 22:41:26 [INFO]     Replaced 'Local_Authority_(District)' with 'LA_Frequency'
+2026-03-28 22:41:26 [INFO]   Temporal train (after Scheme C): (662098, 38)
+2026-03-28 22:41:26 [INFO]   Temporal test (encoded): (425012, 38)
+2026-03-28 22:41:26 [INFO] 
+  Temporal holdout: RandomForest...
+2026-03-28 22:41:26 [INFO]     Temporal holdout: fitting RandomForest on 2005-2012...
+2026-03-28 22:42:08 [INFO]     RandomForest temporal: Macro F1=0.3962, Fatal Recall=0.1693, Balanced Acc=0.4633
+2026-03-28 22:42:08 [INFO] 
+  Temporal holdout: HistGBT...
+2026-03-28 22:42:08 [INFO]     Temporal holdout: fitting HistGBT on 2005-2012...
+2026-03-28 22:42:39 [INFO]     HistGBT temporal: Macro F1=0.3526, Fatal Recall=0.5912, Balanced Acc=0.5425
+2026-03-28 22:42:39 [INFO] 
+  Temporal holdout: LogisticRegression...
+2026-03-28 22:42:39 [INFO]     Temporal holdout: fitting LogisticRegression on 2005-2012...
+2026-03-28 22:44:35 [INFO]     LogisticRegression temporal: Macro F1=0.4081, Fatal Recall=0.2076, Balanced Acc=0.4477
+2026-03-28 22:44:35 [INFO] 
+============================================================
+2026-03-28 22:44:35 [INFO] PART 4: Cluster x Error Analysis
+2026-03-28 22:44:35 [INFO] ============================================================
+2026-03-28 22:44:35 [INFO]   Preparing clustering data (9 features)...
+2026-03-28 22:44:35 [INFO]     Dropped 984 rows with NaN in clustering features (0.14%)
+2026-03-28 22:44:36 [INFO]     Scaled data shape: (695999, 9)
+2026-03-28 22:44:36 [INFO]   Fitting K-Means with K=4...
+2026-03-28 22:44:37 [INFO]     Cluster 0: 309,201 samples (44.4%)
+2026-03-28 22:44:37 [INFO]     Cluster 1: 125,073 samples (18.0%)
+2026-03-28 22:44:37 [INFO]     Cluster 2: 86,261 samples (12.4%)
+2026-03-28 22:44:37 [INFO]     Cluster 3: 175,464 samples (25.2%)
+2026-03-28 22:45:07 [INFO]   Cluster error analysis (4 clusters):
+2026-03-28 22:45:07 [INFO]     Cluster 0: error_rate=0.3238, Fatal recall=0.0111
+2026-03-28 22:45:07 [INFO]     Cluster 1: error_rate=0.2900, Fatal recall=0.1643
+2026-03-28 22:45:07 [INFO]     Cluster 2: error_rate=0.3753, Fatal recall=0.0285
+2026-03-28 22:45:07 [INFO]     Cluster 3: error_rate=0.4338, Fatal recall=0.3841
+2026-03-28 22:45:07 [INFO] 
+  Fatal misclassification patterns (RandomForest):
+2026-03-28 22:45:07 [INFO] 
+ cluster  n_fatal  correct_pct  to_serious_pct  to_slight_pct
+       0     1082          1.1            61.1           37.8
+       1      694         16.4            42.9           40.6
+       2      527          2.8            65.7           31.5
+       3     2296         38.4            40.9           20.7
+2026-03-28 22:45:07 [INFO] 
+============================================================
+2026-03-28 22:45:07 [INFO] PART 5: Generating All Figures
+2026-03-28 22:45:07 [INFO] ============================================================
+2026-03-28 22:45:07 [INFO]   Generating Fig01-03 (EDA)...
+2026-03-28 22:45:11 [INFO]   Generating Fig10 (Confusion matrices)...
+2026-03-28 22:45:42 [INFO]     Saved: ./outputs/figures/Fig10_confusion_matrix_RandomForest.png
+2026-03-28 22:45:45 [INFO]     Saved: ./outputs/figures/Fig10_confusion_matrix_HistGBT.png
+2026-03-28 22:45:46 [INFO]     Saved: ./outputs/figures/Fig10_confusion_matrix_LogisticRegression.png
+2026-03-28 22:45:46 [INFO]   Generating Fig11 (Model comparison)...
+2026-03-28 22:45:47 [INFO]     Saved: ./outputs/figures/Fig11_model_comparison.png
+2026-03-28 22:45:47 [INFO]   Generating Fig12 (ROC curves)...
+2026-03-28 22:45:49 [INFO]     Saved: ./outputs/figures/Fig12_roc_curves.png
+2026-03-28 22:45:49 [INFO]   Generating Fig13 (PR curves)...
+2026-03-28 22:45:51 [INFO]     Saved: ./outputs/figures/Fig13_pr_curves.png
+2026-03-28 22:45:51 [INFO]   Generating Fig14 (Feature importance)...
+2026-03-28 22:45:52 [INFO]     Saved: ./outputs/figures/Fig14_feature_importance_RandomForest.png
+2026-03-28 22:45:52 [INFO]     Saved: ./outputs/figures/Fig14_feature_importance_HistGBT.png
+2026-03-28 22:45:52 [INFO]   Generating Fig15 (LR coefficients)...
+2026-03-28 22:45:52 [INFO]     Saved: ./outputs/figures/Fig15_lr_coefficients.png
+2026-03-28 22:45:52 [INFO]   Generating cluster error figure...
+2026-03-28 22:45:53 [INFO] 
+============================================================
+2026-03-28 22:45:53 [INFO] PHASE 12-13 COMPLETE ¡ª Total time: 591.6s (9.9min)
+2026-03-28 22:45:53 [INFO] ============================================================

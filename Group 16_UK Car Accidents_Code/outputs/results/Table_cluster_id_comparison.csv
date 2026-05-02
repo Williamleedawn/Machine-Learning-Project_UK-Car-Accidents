@@ -1,0 +1,4 @@
+model,baseline_macro_f1,cluster_macro_f1,delta_macro_f1,baseline_fatal_recall,cluster_fatal_recall,delta_fatal_recall
+RandomForest,0.397349,0.397143,-0.000206,0.222440,0.225484,0.003044
+HistGBT,0.357740,0.356457,-0.001283,0.652098,0.657534,0.005436
+LogisticRegression,0.400477,0.400530,0.000053,0.317895,0.318765,0.000870

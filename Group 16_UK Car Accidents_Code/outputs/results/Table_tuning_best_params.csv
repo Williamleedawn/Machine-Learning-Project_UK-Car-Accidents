@@ -1,0 +1,4 @@
+model,best_cv_score,model__C,model__penalty,model__solver,model__learning_rate,model__max_depth,model__max_iter,model__min_samples_leaf,model__min_samples_split,model__n_estimators
+LogisticRegression,0.4205253657336801,0.1,l2,liblinear,,,,,,
+HistGBT,0.40821419110431095,,,,0.1,5.0,200.0,,,
+RandomForest,0.4482338029404664,,,,,20.0,,4.0,2.0,300.0

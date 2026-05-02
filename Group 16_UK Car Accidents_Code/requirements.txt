@@ -1,0 +1,21 @@
+# UK Car Accidents Severity Classification — Dependencies
+# Install: pip install -r requirements.txt
+# Python >= 3.9 required (tested with 3.12)
+
+# Core data processing
+numpy==1.26.4
+pandas==2.2.2
+
+# Machine learning
+scikit-learn==1.5.1       
+
+# Visualization
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Clustering visualization 
+scipy==1.13.1
+
+# Jupyter notebook support (optional, for notebooks/full_pipeline.ipynb)
+jupyter>=1.0.0
+ipykernel>=6.0.0

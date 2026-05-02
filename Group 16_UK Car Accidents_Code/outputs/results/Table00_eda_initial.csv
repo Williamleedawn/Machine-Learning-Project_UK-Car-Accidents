@@ -1,0 +1,12 @@
+metric,value
+total_rows,1780502.0
+total_columns,34.0
+fatal_count,22996.0
+serious_count,242052.0
+slight_count,1515454.0
+fatal_pct,1.29
+serious_pct,13.59
+slight_pct,85.11
+columns_with_nan,17.0
+year_min,2005.0
+year_max,2015.0
